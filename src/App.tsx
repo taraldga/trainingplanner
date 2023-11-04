@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-        <h1>Hello I'm letting you create workouts</h1>
+        <h1>Hello I'm letting you create Workout Plans</h1>
         <a className="btn" href="/workouts/new">Create new workout</a>
     </>
   )
