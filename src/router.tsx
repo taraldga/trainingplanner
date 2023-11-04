@@ -1,7 +1,9 @@
 import {createBrowserRouter} from "react-router-dom";
 import App from "./App.tsx";
-import CreateWorkout from "./pages/CreateWorkout.tsx";
-import ViewWorkout from "./pages/ViewWorkout.tsx";
+import CreateWorkout from "./pages/workout/CreateWorkout.tsx";
+import ViewWorkout from "./pages/workout/ViewWorkout.tsx";
+import ViewPlan from "./pages/plan/ViewPlan.tsx";
+import CreatePlan from "./pages/plan/CreatePlan.tsx";
 
 const router = createBrowserRouter(
     [
@@ -16,6 +18,14 @@ const router = createBrowserRouter(
         {
             path: "/workouts/view",
             element: <ViewWorkout />
+        },
+        {
+            path: "/plans/view",
+            element: <ViewPlan />
+        },
+        {
+            path: "/plans/new",
+            element: <CreatePlan />
         }
     ]
 )
