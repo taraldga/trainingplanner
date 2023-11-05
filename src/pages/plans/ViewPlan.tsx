@@ -13,7 +13,7 @@ const ViewPlan = () => {
     if( plan === undefined ) return <div></div>
     return (
 
-        <div className="w-8/12 mx-auto">
+        <div className="">
             <h1 className="text-4xl">{plan.title}</h1>
             <span className="text-lg">{plan.notes}</span>
             {plan.weeks.map((workouts,index) => {

@@ -1,7 +1,7 @@
 
 const Home = () => {
     return (
-        <div className="w-8/12 mx-auto flex flex-col justify-center items-center ">
+        <div className="flex flex-col justify-center items-center ">
             <h1 className="text-2xl">Welcome!</h1>
             <div className="flex justify-center gap-1">
                 <a className="btn btn-primary" href="/plans/new">Create plan</a>

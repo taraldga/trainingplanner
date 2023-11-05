@@ -25,7 +25,6 @@ const CreateWorkout = () => {
             {exercises.map(() => {
                 return (
                     <div>
-                        <p>Halla</p>
                         <input className="input input-primary" type="text" />
                         <textarea className="textarea textarea-primary"/>
                     </div>

@@ -2,7 +2,7 @@
 
 const ViewWorkout = () => {
     return (
-        <div className="w-8/12 mx-auto">
+        <div className="">
             <h1 className="text-4xl">View workout</h1>
             <div tabIndex={0} className="collapse bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content mb-5">
                 <div className="collapse-title">
