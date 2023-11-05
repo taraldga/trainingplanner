@@ -1,15 +1,15 @@
 import {createBrowserRouter} from "react-router-dom";
-import App from "./App.tsx";
-import CreateWorkout from "./pages/workout/CreateWorkout.tsx";
-import ViewWorkout from "./pages/workout/ViewWorkout.tsx";
-import ViewPlan from "./pages/plan/ViewPlan.tsx";
-import CreatePlan from "./pages/plan/CreatePlan.tsx";
+import CreateWorkout from "./pages/workouts/CreateWorkout.tsx";
+import ViewWorkout from "./pages/workouts/ViewWorkout.tsx";
+import ViewPlan from "./pages/plans/ViewPlan.tsx";
+import CreatePlan from "./pages/plans/CreatePlan.tsx";
+import Home from "./pages/Home.tsx";
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
-            element: <App />
+            element: <Home />
         },
         {
             path: "/workouts/new",
