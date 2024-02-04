@@ -31,47 +31,42 @@ const StrengthWorkoutForm = ({
 }: StrengthWorkoutFormProps) => {
   return (
     <Card className="mt-2" key={field.id}>
-      <CardHeader>
-        <CardTitle>
-          <label htmlFor="exercises.${idx}.title">Title</label>
-          <Input
-            id={`exercises.${idx}.description`}
-            {...register(`exercises.${idx}.title`)}
-            type="text"
-          />
-        </CardTitle>
-        <CardDescription>
-          <label htmlFor="exercises.${idx}.description">Description</label>
-          <Input
-            id={`exercises.${idx}.description`}
-            {...register(`exercises.${idx}.description`)}
-            type="text"
-          />
-        </CardDescription>
-      </CardHeader>
       <CardContent>
-        <label htmlFor="exercises.${idx}.link">Link</label>
-        <Input
-          id={`exercises.${idx}.link`}
-          {...register(`exercises.${idx}.link`)}
-          type="text"
-        />
         <div className="flex justify-around">
           <div className="w-1/2 p-2">
-            <label htmlFor="exercises.${idx}.sets">Sets</label>
+            <label htmlFor="exercises.${idx}.title">Title</label>
             <Input
-              id={`exercises.${idx}.sets`}
-              {...register(`exercises.${idx}.sets`)}
-              type="number"
+              id={`exercises.${idx}.description`}
+              {...register(`exercises.${idx}.title`)}
+              type="text"
             />
-            <label htmlFor="exercises.${idx}.reps">Reps</label>
+            <label htmlFor="exercises.${idx}.description">Description</label>
             <Input
-              id={`exercises.${idx}.reps`}
-              {...register(`exercises.${idx}.reps`)}
-              type="number"
+              id={`exercises.${idx}.description`}
+              {...register(`exercises.${idx}.description`)}
+              type="text"
+            />
+            <label htmlFor="exercises.${idx}.link">Link</label>
+            <Input
+              id={`exercises.${idx}.link`}
+              {...register(`exercises.${idx}.link`)}
+              type="text"
             />
           </div>
           <div className="w-1/2 p-2">
+          <label htmlFor="exercises.${idx}.sets">Sets</label>
+          <Input
+            id={`exercises.${idx}.sets`}
+            {...register(`exercises.${idx}.sets`)}
+            type="number"
+          />
+          <label htmlFor="exercises.${idx}.reps">Reps</label>
+          <Input
+            id={`exercises.${idx}.reps`}
+            {...register(`exercises.${idx}.reps`)}
+            type="number"
+          />
+
             <input
               type="checkbox"
               id={`exercises.${idx}.isBodyWeight`}
@@ -85,7 +80,7 @@ const StrengthWorkoutForm = ({
             <Input
               id={`exercises.${idx}.weight`}
               disabled={isBodyWeight}
-              {...register(`exercises.${idx}.reps`)}
+              {...register(`exercises.${idx}.weight`)}
               type="number"
             />
           </div>
