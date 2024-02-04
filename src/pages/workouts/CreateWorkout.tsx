@@ -35,7 +35,7 @@ const CreateWorkout = () => {
                 remove={remove}
                 field={field}
                 idx={idx} 
-                isBodyWeight={watch("exercises")[0]?.isBodyWeight}
+                isBodyWeight={watch("exercises")[idx]?.isBodyWeight}
             />
           );
         })}
