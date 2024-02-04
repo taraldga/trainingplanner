@@ -1,9 +1,10 @@
 import { useFieldArray, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import StrengthWorkoutForm from "./StrengthWorkoutForm";
+import { Checkbox } from "@radix-ui/react-checkbox";
 
 const CreateWorkout = () => {
-  const { control, register, handleSubmit } = useForm();
+  const { control, register, handleSubmit, watch } = useForm();
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
       control,
@@ -34,6 +35,7 @@ const CreateWorkout = () => {
                 remove={remove}
                 field={field}
                 idx={idx} 
+                isBodyWeight={watch("exercises")[0]?.isBodyWeight}
             />
           );
         })}
