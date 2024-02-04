@@ -72,14 +72,14 @@ const StrengthWorkoutForm = ({
             />
           </div>
           <div className="w-1/2 p-2">
-            <label htmlFor="exercises.${idx}.isBodyWeight">
-              Is Body Weight
-            </label>
             <input
               type="checkbox"
               id={`exercises.${idx}.isBodyWeight`}
               {...register(`exercises.${idx}.isBodyWeight`)}
             />
+            <label className="ml-2" htmlFor="exercises.${idx}.isBodyWeight">
+              Is Body Weight
+            </label>
             <br />
             <label htmlFor="exercises.${idx}.weight">Weight</label>
             <Input
