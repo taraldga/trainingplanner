@@ -6,18 +6,21 @@ export interface ExerciseLoad {
     isBodyWeight: boolean;
 }
 
-export interface Exercice {
+export interface Exercise {
     exerciseId: string;
     name: string;
     link: string;
     description: string;
-    load: ExerciseLoad;
+    reps: number;
+    sets: number;
+    weight: number;
+    isBodyWeight: boolean;
 }
 export interface Workout {
     title: string;
     description: string;
     link: string;
-    exercises: Exercice[]
+    exercises: Exercise[]
 }
 export interface Plan {
     title: string;

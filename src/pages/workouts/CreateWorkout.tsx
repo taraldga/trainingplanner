@@ -1,37 +1,53 @@
-import {useState} from "react";
-
-interface Exercise {
-    title: string,
-    description: string
-}
+import { useFieldArray, useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import StrengthWorkoutForm from "./StrengthWorkoutForm";
 
 const CreateWorkout = () => {
-    const [exercises, setExercices] = useState<Exercise[]>([]);
-
-    const createEmptyExercise = () => {
-        return {
-            title: "",
-            description: ""
-        }
+  const { control, register, handleSubmit } = useForm();
+  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
+    {
+      control,
+      name: "exercises",
     }
+  );
 
-    return (
-        <div>
-            <h1 className="text-2xl">Creating workout</h1>
+  const defaultExercise = {
+    title: "New Exercise", 
+    description: "New description",
+    link: "",
+    sets: 3,
+    reps: 8,
+    isBodyWeight: false,
+    weight: 60
+  }
 
-            <button className="btn btn-primary" onClick={() => {
-                setExercices([...exercises, createEmptyExercise()])
-            }}> Create Exercise</button>
-            {exercises.map(() => {
-                return (
-                    <div>
-                        <input className="input input-primary" type="text" />
-                        <textarea className="textarea textarea-primary"/>
-                    </div>
-                );
-            })}
-        </div>
-    )
-}
+  const onSubmit = (data: object) => console.log(data);
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="text-2xl">Creating workout</h1>
+        {fields.map((field, idx) => {
+          return (
+            <StrengthWorkoutForm 
+                register={register}
+                remove={remove}
+                field={field}
+                idx={idx} 
+            />
+          );
+        })}
+        <input type="submit" />
+      </form>
+      <Button
+        onClick={() =>
+          append({...defaultExercise})
+        }
+      >
+        Add new exercise
+      </Button>
+    </div>
+  );
+};
 
 export default CreateWorkout;
