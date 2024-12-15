@@ -1,6 +1,11 @@
 import { useFieldArray, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import StrengthWorkoutForm from "./StrengthWorkoutForm";
+import { compress, createWorkoutLink } from "@/lib/utils";
+import LZString from "lz-string";
+import rison from "rison";
+import { serialize } from "@/lib/serialize";
+import { Workout } from "@/types/Plan";
 
 const CreateWorkout = () => {
   const { control, register, handleSubmit, watch } = useForm();
@@ -8,7 +13,7 @@ const CreateWorkout = () => {
     {
       control,
       name: "exercises",
-    }
+    },
   );
 
   const defaultExercise = {
@@ -21,7 +26,9 @@ const CreateWorkout = () => {
     weight: 60,
   };
 
-  const onSubmit = (data: object) => console.log(data);
+  const onSubmit = (data: object) => {
+    serialize(data as Workout);
+  };
 
   return (
     <div>
@@ -38,16 +45,25 @@ const CreateWorkout = () => {
             />
           );
         })}
-        <div className="w-full flex justify-start mt-2">
+        <div className="mt-2 flex w-full justify-start">
           <Button
             variant={"secondary"}
-            onClick={() => append({ ...defaultExercise })}
+            onClick={(e) => {
+              e.preventDefault();
+              append({ ...defaultExercise });
+            }}
           >
             Add new exercise
           </Button>
-          <Button className="ml-2" type="submit">Create link</Button>
+          <Button className="ml-2" type="submit">
+            Create link
+          </Button>
         </div>
       </form>
+      <div>
+        Link: {window.location.href}/workout/display/
+        {createWorkoutLink(watch("exercises"))}
+      </div>
     </div>
   );
 };
